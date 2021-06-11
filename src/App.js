@@ -7,19 +7,25 @@ import './App.css'
  * 
  * @type {React.FC}
  */
+
+
 export const App = () => {
 
   const [url, setDogUrl] = useState('https://images.dog.ceo/breeds/cairn/n02096177_1710.jpg');
 
-  const changeUrl = () => {
-    console.log("change")
-    setDogUrl("https://images.dog.ceo/breeds/hound-english/n02089973_1132.jpg")
+  async function changeUrl() {
+    const response = await fetch(
+      'https://dog.ceo/api/breeds/image/random'
+    );
+    const data = await response.json();
+    console.log(data);
+    setDogUrl(data.message);
   }
 
   return (
     <div>
       <header>
-        <p>Nikki</p>
+        <p>DogList</p>
       </header>
       <p>道端で出会った犬</p>
       <img src={url} alt="dog"></img>
