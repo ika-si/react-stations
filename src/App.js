@@ -25,12 +25,17 @@ export const App = () => {
   return (
     <div>
       <header>
-        <p>DogList</p>
+        <h1>DogList</h1>
       </header>
-      <p>道端で出会った犬</p>
-      <img src={url} alt="dog"></img>
-      <br></br>
-      <button onClick={changeUrl}>更新</button>
+      <div class="top-box">
+      <div id="title">
+        <p>たくさんの犬を見てみよう!</p>
+        <button onClick={changeUrl}>更新</button>
+      </div>
+      <div id="image-box">
+        <img src={url} alt="dog"></img>
+      </div>
+      </div>
     </div>
   )
 }
